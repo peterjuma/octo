@@ -7,30 +7,32 @@ assignees: ''
 
 ---
 
-### Feature/Fix/Improv: Title
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-[Issue link]()
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Context**
-(what is the user/business reason for this)
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**Relevant Experiment Key:Value**
-`"someExperimentHere"`: -1
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-**QA Steps**
-1.
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-**Do you anticipate this change will have side effects that need to be tested? If so, check below.**
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
 
-- [ ] Onboarding
-- [ ] Deep Linking
-- [ ] Data Breach email connection
-- [ ] NSE
-- [ ] Weekly Briefing
-- [ ] iPad (specifically for a flow or screen that is notably different on iPad)
-
-**Demo**
-(video or screens)
-
-**Test Cases**
-(for the QA team)
+**Additional context**
+Add any other context about the problem here.

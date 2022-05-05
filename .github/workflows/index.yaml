@@ -8,7 +8,7 @@ jobs:
       - name: Generate random exit status 0 or 1
         run: |
           echo "exit_status=$(( ( RANDOM % 2)  + 1 -1 ))" 
-          echo "Exit status ${{ exit_status }}"
+          echo "Exit status $exit_status"
           exit $(( ( RANDOM % 2)  + 1 - 1 ))
   build:
      runs-on: ubuntu-latest

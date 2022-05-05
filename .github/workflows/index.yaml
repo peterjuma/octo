@@ -15,7 +15,7 @@ jobs:
      if: always()    
      steps:
        - name: Fail the job if result is not success
-         if: ${{ needs.build.result != 'success'}}
+         if: ${{ needs.ci.result != 'success'}}
          run: | 
            echo "Dependent job failed!"
            exit 1

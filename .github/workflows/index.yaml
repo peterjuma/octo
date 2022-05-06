@@ -10,14 +10,11 @@ jobs:
          if: ${{ failure() }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
-           exit 1
        - name: Explicitly check if atleast ONE of the previous steps failed
          if: ${{ job.status == 'failure' }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
-           exit 1
        - name: Check if NONE of the previous steps failed
          if: ${{ success() }}
          run: |
            echo "Run if NONE of the previous step of a this job fails!"
-           exit 0

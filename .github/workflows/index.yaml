@@ -15,6 +15,7 @@ jobs:
          if: ${{ needs.build.result != 'success'}}
          run: |
            echo "Dependent job failed!"
+           echo "${{ failure() }}"
            exit 1
        - name: Run job if result is success
          run: |

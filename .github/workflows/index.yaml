@@ -7,16 +7,11 @@
         - run: exit 1
     deploy:
        runs-on: ubuntu-latest
-       if: ${{ always() }}
        needs: 
          - build  
+       if: ${{ failure() }}
        steps:
          - name: Run if ANY of the previous step of a this job fails!
-           if: ${{ failure() }}
            run: |
              echo "Dependent job failed!"
              exit 1
-         - name: Run if NONE of the previous step of a this job fails!
-           run: |
-             echo "Dependent job succeeded!"
-              exit 0

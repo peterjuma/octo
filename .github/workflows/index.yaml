@@ -4,14 +4,14 @@ jobs:
   build_and_deploy:
      runs-on: ubuntu-latest
      steps:
-       - name: Run build step
+       - name: Build
          run: |
            echo "Running build"
            exit 0
-       - name: Run deploy step
+       - name: Deploy
          run: |
            echo "Running deploy"
-           exit 0   
+           exit 1  
        - name: The build job has failed
          if: ${{ failure() }}
          run: |

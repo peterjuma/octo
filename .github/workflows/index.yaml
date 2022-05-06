@@ -14,15 +14,13 @@ jobs:
        - build
      if: always()    
      steps:
-       - name: Fail the job if result is not success
-         if: ${{ needs.build.result != 'success'}}
-         run: |
-           echo "Dependent job failed!"
        - name: The job has failed
          if: ${{ failure() }}
          run: |
-           echo "Any previous step of a job fails!"
-       - name: The job has succeeded
-         if: ${{ success() }}
+           echo "Fails if any of the previous step of a job fails!"
+           exit 1
+       - name: Run job if result is success
          run: |
-           echo "None of the previous steps have failed or been canceled.!"
+           echo "Dependent job succeeded!"
+           exit 0
+

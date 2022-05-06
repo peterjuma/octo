@@ -4,10 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          exit_status=$(( ( RANDOM % 2)  + 1 -1 ))
-          echo "Exit status $exit_status"
-          exit $exit_status
+      - run: exit 1
   deploy:
      runs-on: ubuntu-latest
      needs: 

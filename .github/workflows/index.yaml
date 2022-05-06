@@ -11,7 +11,7 @@ jobs:
          run: |
            echo "Run if any of the previous step of a this job fails!"
        - name: Explicitly check if atleast ONE of the previous steps failed
-         if: ${{ deploy.status == 'failure' }}
+         if: ${{ github.action_status == 'failure' }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
        - name: Check if NONE of the previous steps failed

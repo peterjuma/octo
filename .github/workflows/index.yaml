@@ -12,7 +12,7 @@ jobs:
          run: |
            echo "Running deploy"
            exit 1  
-       - name: The build job has failed
+       - name: One of the jobs has failed
          if: ${{ failure() }}
          run: |
            echo "Fails if any of the previous step of a this fails!"

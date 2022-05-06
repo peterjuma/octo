@@ -1,17 +1,19 @@
 name: Smoke Tests
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: exit 1
-  deploy:
+  build_and_deploy:
      runs-on: ubuntu-latest
-     needs: 
-       - build  
      steps:
-       - name: The job has failed
+       - name: Run build step
+         run: |
+           echo "Running build"
+           exit 0
+       - name: Run deploy step
+         run: |
+           echo "Running deploy"
+           exit 0   
+       - name: The build job has failed
          if: ${{ failure() }}
          run: |
-           echo "Fails if any of the previous step of a job fails!"
+           echo "Fails if any of the previous step of a this fails!"
            exit 1

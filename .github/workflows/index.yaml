@@ -8,16 +8,10 @@ jobs:
   deploy:
      runs-on: ubuntu-latest
      needs: 
-       - build
-     if: always()    
+       - build  
      steps:
        - name: The job has failed
          if: ${{ failure() }}
          run: |
            echo "Fails if any of the previous step of a job fails!"
            exit 1
-       - name: Run job if result is success
-         run: |
-           echo "Dependent job succeeded!"
-           exit 0
-

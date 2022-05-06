@@ -15,7 +15,6 @@ jobs:
          run: |
            echo "Run if any of the previous step of a this job fails!"
            exit 1
-     steps:
        - name: NONE of the previous steps failed
          if: ${{ success() }}
          run: |

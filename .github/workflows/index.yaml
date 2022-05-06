@@ -6,10 +6,6 @@ jobs:
      steps:
        - name: Initial step
          run: exit 1
-       - name: Check of atleast ONE of the previous steps failed
-         if: ${{ failure() }}
-         run: |
-           echo "Run if any of the previous step of a this job fails!"
        - name: Explicitly check if atleast ONE of the previous steps failed
          if: ${{ job.status == 'failure' }}
          run: |

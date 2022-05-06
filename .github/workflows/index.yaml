@@ -9,10 +9,9 @@ jobs:
      runs-on: ubuntu-latest
      needs: 
        - build
-     if: always()
+     if: ${{ failure() }}
      steps:
        - name: One of the previous steps of this job failed
-         if: ${{ failure() }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
            exit 1

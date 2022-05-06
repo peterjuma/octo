@@ -12,7 +12,7 @@
        if: always()    
        steps:
          - name: Run if ANY of the previous step of a this job fails!
-           if: ${{ build.failure() }}
+           if: ${{ failure() }}
            run: |
              echo "Dependent job failed!"
              exit 1

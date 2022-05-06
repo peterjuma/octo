@@ -5,7 +5,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Initial step
-         run: exit 1
+         run: exit 0
        - name: Atleast ONE of the previous steps failed
          if: ${{ failure() }}
          run: |

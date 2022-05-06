@@ -9,6 +9,7 @@ jobs:
      runs-on: ubuntu-latest
      needs: 
        - build
+     if: ${{ always() }}
      steps:
        - name: Atleast ONE of the previous steps failed
          if: ${{ failure() }}

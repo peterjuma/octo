@@ -1,16 +1,11 @@
 name: Smoke Tests
 on: push
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: exit 1
   deploy:
      runs-on: ubuntu-latest
-     needs: 
-       - build
-     if: ${{ always() }}
      steps:
+       - name: Initial step
+         run: exit 1
        - name: Atleast ONE of the previous steps failed
          if: ${{ failure() }}
          run: |

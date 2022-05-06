@@ -9,15 +9,15 @@ jobs:
      runs-on: ubuntu-latest
      needs: 
        - build
-     if: ${{ failure() }}
      steps:
        - name: Atleast ONE of the previous steps failed
+         if: ${{ failure() }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
            exit 1
-     if: ${{ success() }}
      steps:
        - name: NONE of the previous steps failed
+         if: ${{ success() }}
          run: |
            echo "Run if NONE of the previous step of a this job fails!"
            exit 0

@@ -15,11 +15,11 @@ jobs:
          if: ${{ needs.build.result != 'success'}}
          run: |
            echo "Dependent job failed!"
-      - name: The job has failed
+       - name: The job has failed
          if: ${{ failure() }}
          run: |
            echo "Any previous step of a job fails!"
-      - name: The job has succeeded
+       - name: The job has succeeded
          if: ${{ success() }}
          run: |
            echo "None of the previous steps have failed or been canceled.!"

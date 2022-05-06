@@ -5,13 +5,18 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Initial step
-         run: exit 0
-       - name: Atleast ONE of the previous steps failed
+         run: exit 1
+       - name: Check of atleast ONE of the previous steps failed
          if: ${{ failure() }}
          run: |
            echo "Run if any of the previous step of a this job fails!"
            exit 1
-       - name: NONE of the previous steps failed
+       - name: Explicitly check if atleast ONE of the previous steps failed
+         if: ${{ job.status == 'failure' }}
+         run: |
+           echo "Run if any of the previous step of a this job fails!"
+           exit 1
+       - name: Check if NONE of the previous steps failed
          if: ${{ success() }}
          run: |
            echo "Run if NONE of the previous step of a this job fails!"

@@ -1,20 +1,22 @@
-name: Smoke Tests
-on: push
-jobs:
-  deploy:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Initial step
-         run: exit 1
-       - name: Check of atleast ONE of the previous steps failed
-         if: ${{ failure() }}
-         run: |
-           echo "Run if any of the previous step of a this job fails!"
-       - name: Explicitly check if atleast ONE of the previous steps failed
-         if: ${{ github.action_status == 'failure' }}
-         run: |
-           echo "Run if any of the previous step of a this job fails!"
-       - name: Check if NONE of the previous steps failed
-         if: ${{ success() }}
-         run: |
-           echo "Run if NONE of the previous step of a this job fails!"
+  name: Smoke Tests
+  on: push
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - run: exit 1
+    deploy:
+       runs-on: ubuntu-latest
+       needs: 
+         - build
+       if: always()    
+       steps:
+         - name: Run if ANY of the previous step of a this job fails!
+           if: ${{ build.failure() }}
+           run: |
+             echo "Dependent job failed!"
+             exit 1
+         - name: Run if NONE of the previous step of a this job fails!
+           run: |
+             echo "Dependent job succeeded!"
+              exit 0
